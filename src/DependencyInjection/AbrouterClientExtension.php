@@ -1,12 +1,10 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Abrouter\SymfonyClient\DependencyInjection;
 
 use Abrouter\Client\Config\Config;
-use Abrouter\Client\Manager\ExperimentManager;
-use Abrouter\Client\Manager\FeatureFlagManager;
-use Abrouter\Client\Manager\StatisticsManager;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\Config\FileLocator;
@@ -26,7 +24,7 @@ class AbrouterClientExtension extends Extension
     {
         $loader = new Loader\YamlFileLoader(
             $container,
-            new FileLocator(__DIR__.'/../Resources/config')
+            new FileLocator(__DIR__ . '/../Resources/config')
         );
         $loader->load('services.yaml');
 
@@ -35,7 +33,5 @@ class AbrouterClientExtension extends Extension
         $container->register(Config::class)
             ->addArgument($config['token'])
             ->addArgument($config['host']);
-
-//        $container->autowire()
     }
 }

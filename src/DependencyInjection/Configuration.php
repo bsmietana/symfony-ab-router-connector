@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Abrouter\SymfonyClient\DependencyInjection;
 
@@ -16,15 +17,13 @@ class Configuration implements ConfigurationInterface
             ->getRootNode()
             ->addDefaultsIfNotSet()
             ->children()
-                ->scalarNode('token')
-                    ->defaultValue('')
-                ->end()
-                ->scalarNode('host')
-                    ->defaultValue('https://abrouter.com')
-                ->end();
+            ->scalarNode('token')
+            ->defaultValue('')
+            ->end()
+            ->scalarNode('host')
+            ->defaultValue('https://abrouter.com')
+            ->end();
 
         return $treeBuilder;
     }
-
-
 }
